@@ -364,12 +364,14 @@ if __name__ == '__main__':
     run code if you run this script instead of importing it
     '''
     # Simulation Constants (Walker settings in Walker.__init__ function)
-    num_walkers = 30            # Number of Walkers
+    num_walkers = 3            # Number of Walkers
     x_scaling = 2000            # width of area walkers could be on
     nutrient_level = 1500       # point where nutrient is located
-    max_loops = 10000           # stop the simulation from running away
+    max_loops = 5000           # stop the simulation from running away
+    runs = 1
 
-    all_walkers, now = exploration_algorithm(num_walkers, x_scaling, nutrient_level, max_loops)
-    plot = plot_data(all_walkers, nutrient_level)
-    save_data(all_walkers, now, plot)
-    plot.show()
+    for i in range(runs):
+        all_walkers, now = exploration_algorithm(num_walkers, x_scaling, nutrient_level, max_loops)
+        plot = plot_data(all_walkers, nutrient_level)
+        save_data(all_walkers, now, plot)
+        plot.show()
